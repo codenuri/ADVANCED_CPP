@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <utility>
 #include "default_delete.h"
 #include "compressed_pair.h"
 
@@ -55,7 +56,7 @@ public:
         if (this != std::addressof(up))
         {
             reset(up.release());
-            cpair.getFirst()() = std::forward<D>(up.cpair.getFirst());
+            cpair.getFirst() = std::forward<D>(up.cpair.getFirst());
         }
         return *this;
     }
@@ -70,7 +71,7 @@ public:
         if (this != std::addressof(up))
         {
             reset(up.release());
-            cpair.getFirst()() = std::forward<D2>(up.cpair.getFirst());
+            cpair.getFirst() = std::forward<D2>(up.cpair.getFirst());
         }
         return *this;
     }
