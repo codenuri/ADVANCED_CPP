@@ -57,7 +57,7 @@ public:
         if (this != std::addressof(up))
         {
             reset(up.release());   // pointer
-            cpair.getFirst()() = std::forward<D>(up.cpair.getFirst()); // deleter
+            cpair.getFirst() = std::forward<D>(up.cpair.getFirst()); // deleter
         }
         return *this;
     }
